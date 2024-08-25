@@ -1,1 +1,1 @@
-# springboot
+Có thể di chuyển class chứa hàm main sang một package khác, nhưng cần lưu ý lớp đó phải nằm trong package cha hoặc các package con của package đã khai báo. Nếu không có khai báo thì không thể nào chạy được.
