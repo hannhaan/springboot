@@ -22,7 +22,7 @@
   
   - Ví Dụ
     . Quan hệ 1-1 hai chiều
-      ```java
+        ```java
       @Entity
   public class User {
       @Id
@@ -32,7 +32,6 @@
       @OneToOne(mappedBy = "user") // "user" là tên thuộc tính bên UserProfile
       private UserProfile userProfile;
   }
-  
   @Entity
   public class UserProfile {
       @Id
