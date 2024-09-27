@@ -46,30 +46,31 @@
 
 
   . Quan hệ 1-N và N-1 hai chiều
-   ```java
-      @Entity
-      public class Department {
-          @Id
-          @GeneratedValue(strategy = GenerationType.IDENTITY)
-          private Long id;
-      
-          @OneToMany(mappedBy = "department")
-          private List<Employee> employees;
-      }
-      
-      @Entity
-      public class Employee {
-          @Id
-          @GeneratedValue(strategy = GenerationType.IDENTITY)
-          private Long id;
-      
-          @ManyToOne
-          @JoinColumn(name = "department_id")
-          private Department department;
-      }
+  
+          @Entity
+          public class Department {
+              @Id
+              @GeneratedValue(strategy = GenerationType.IDENTITY)
+              private Long id;
+          
+              @OneToMany(mappedBy = "department")
+              private List<Employee> employees;
+          }
+          
+          @Entity
+          public class Employee {
+              @Id
+              @GeneratedValue(strategy = GenerationType.IDENTITY)
+              private Long id;
+          
+              @ManyToOne
+              @JoinColumn(name = "department_id")
+              private Department department;
+          }
 
-  . Quan hệ nhiều-nhiều (ManyToMany) hai chiều
-  ```java
+
+ . Quan hệ nhiều-nhiều (ManyToMany) hai chiều
+ ```java
             @Entity
         public class Student {
             @Id
