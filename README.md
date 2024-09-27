@@ -23,20 +23,24 @@
   - Ví Dụ
     . Quan hệ 1-1 hai chiều
      ```java
-   @Entity
-  public class User {
-      @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
-      private Long id;
-      @OneToOne(mappedBy = "user") // "user" là tên thuộc tính bên UserProfile
-      private UserProfile userProfile;
-  }
-  @Entity
-  public class UserProfile {
-      @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
-      private Long id;
-      @OneToOne
-      @JoinColumn(name = "user_id") // Khóa ngoại lưu trữ trong bảng này
-      private User user;
-  }
+          @Entity
+     public class User {
+          @Id
+          @GeneratedValue(strategy = GenerationType.IDENTITY)
+          private Long id;
+
+          @OneToOne(mappedBy = "user") // "user" là tên thuộc tính bên UserProfile
+          private UserProfile userProfile;
+    }
+
+          @Entity
+          public class UserProfile {
+              @Id
+              @GeneratedValue(strategy = GenerationType.IDENTITY)
+              private Long id;
+          
+              @OneToOne
+              @JoinColumn(name = "user_id") // Khóa ngoại lưu trữ trong bảng này
+              private User user;
+          }
+
