@@ -1,4 +1,4 @@
-1. Có thể move/dời class chứa hàm main sang nơi khác không? Vì sao?
+1.Có thể move/dời class chứa hàm main sang nơi khác không? Vì sao?
   Có thể di chuyển class chứa hàm main sang một package khác, nhưng cần lưu ý lớp đó phải nằm trong package cha hoặc các package con của package đã khai báo. Nếu không có khai báo thì không thể nào chạy được.
 
 2.Nghiên cứu @OneToOne, nó khác gì @ManyToOne?
@@ -46,7 +46,7 @@
 
 
   . Quan hệ 1-N và N-1 hai chiều
-  ```java
+   ```java
       @Entity
       public class Department {
           @Id
@@ -67,3 +67,32 @@
           @JoinColumn(name = "department_id")
           private Department department;
       }
+
+  . Quan hệ nhiều-nhiều (ManyToMany) hai chiều
+  ```java
+            @Entity
+        public class Student {
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private Long id;
+        
+            @ManyToMany(mappedBy = "students") // "students" là thuộc tính bên Course
+            private List<Course> courses;
+        }
+        
+        @Entity
+        public class Course {
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private Long id;
+        
+            @ManyToMany
+            @JoinTable(
+                name = "student_course",
+                joinColumns = @JoinColumn(name = "course_id"),
+                inverseJoinColumns = @JoinColumn(name = "student_id"))
+            private List<Student> students;
+        }
+
+  
+          
