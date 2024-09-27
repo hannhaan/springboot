@@ -46,7 +46,8 @@
 
 
   . Quan hệ 1-N và N-1 hai chiều
-  
+      ```java
+ 
           @Entity
           public class Department {
               @Id
@@ -71,7 +72,7 @@
 
  . Quan hệ nhiều-nhiều (ManyToMany) hai chiều
  ```java
-            @Entity
+        @Entity
         public class Student {
             @Id
             @GeneratedValue(strategy = GenerationType.IDENTITY)
