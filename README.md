@@ -21,7 +21,8 @@
       . mappedBy được sử dụng trên phía "nghịch đảo" (inverse side) của mối quan hệ. Nó chỉ ra rằng trường này không sở hữu mối quan hệ; thay vào đó, nó ánh xạ đến thuộc tính sở hữu trong thực thể đối tác.  mappedBy chỉ ra rằng mối quan hệ này được ánh xạ bởi thuộc tính cụ thể của thực thể khác và nó phải trùng tên với tên thuộc tính bên sở hữu.
   
   - Ví Dụ
-    .Quan hệ 1-1 hai chiều
+    
+    . Quan hệ 1-1 hai chiều
      ```java
           @Entity
      public class User {
