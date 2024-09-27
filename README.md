@@ -29,7 +29,7 @@
           @GeneratedValue(strategy = GenerationType.IDENTITY)
           private Long id;
 
-          @OneToOne(mappedBy = "user") // "user" là tên thuộc tính bên UserProfile
+          @OneToOne(mappedBy = "user")
           private UserProfile userProfile;
     }
 
@@ -40,7 +40,30 @@
               private Long id;
           
               @OneToOne
-              @JoinColumn(name = "user_id") // Khóa ngoại lưu trữ trong bảng này
+              @JoinColumn(name = "user_id")
               private User user;
           }
 
+
+  . Quan hệ 1-N và N-1 hai chiều
+  ```java
+      @Entity
+      public class Department {
+          @Id
+          @GeneratedValue(strategy = GenerationType.IDENTITY)
+          private Long id;
+      
+          @OneToMany(mappedBy = "department")
+          private List<Employee> employees;
+      }
+      
+      @Entity
+      public class Employee {
+          @Id
+          @GeneratedValue(strategy = GenerationType.IDENTITY)
+          private Long id;
+      
+          @ManyToOne
+          @JoinColumn(name = "department_id")
+          private Department department;
+      }
