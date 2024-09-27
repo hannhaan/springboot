@@ -46,7 +46,7 @@
 
 
   . Quan hệ 1-N và N-1 hai chiều
-      ```java
+    ```java
  
           @Entity
           public class Department {
